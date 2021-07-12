@@ -1,0 +1,6 @@
+- platform: group
+  name: Living Room Overhead Lamp
+  entities:
+      - light.0xb0ce18140360b387
+      - light.0xb0ce18140336fd81
+      - light.0xb0ce18140360b248
