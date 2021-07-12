@@ -1,0 +1,73 @@
+---
+#
+# This automation simulates the use of the IKEA TRADFRI Remote control
+# connected through zha but should also work for other type of events.
+# Requires Home Assistant 0.113 or higher.
+#
+id: 'kitchen_light_button'
+alias: Kitchen Light Button
+description: ''
+mode: restart
+trigger:
+  - platform: event
+    event_type: state_changed
+    event_data:
+      entity_id: sensor.button_2
+condition: []
+action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data["new_state"]["state"] == "on" }}'
+      sequence:
+        - service: light.turn_on
+          target:
+            entity_id: light.kitchen
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data["new_state"]["state"] == "off" }}'
+      sequence:
+        - service: light.turn_off
+          target:
+            entity_id: light.kitchen
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data["new_state"]["state"] == "brightness_move_down" }}'
+      sequence:
+        - repeat:
+            while: []
+            sequence:
+              - service: light.turn_on
+                target:
+                  entity_id: light.kitchen
+                data:
+                  entity_id: light.kitchen
+                  brightness_step_pct: -10
+                  transition: 0.5
+              - delay:
+                  milliseconds: 500
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data["new_state"]["state"] == "brightness_move_up" }}'
+      sequence:
+        - repeat:
+            while: []
+            sequence:
+              - service: light.turn_on
+                target:
+                  entity_id: light.kitchen
+                data_template:
+                  entity_id: light.kitchen
+                  brightness_step_pct: 10
+                  transition: 0.5
+              - delay:
+                  milliseconds: 500
+
+# Any other event will cancel the repeat loops.
+    default:
+      service: system_log.write
+      data: 
+        message: "{{ trigger.event.data }}"
+        level: info
+
+        
