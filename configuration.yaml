@@ -10,3 +10,10 @@ group: !include groups.yaml
 automation: !include_dir_list automations/ 
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
+climate:
+     - platform: midea_ac
+       host: 192.168.86.162
+       id: 30786325683952
+       token: D67DEF573985A44C2183615158FDA990F2A3D283A1AF38A60ADFCBF998670A32B134241C7A5FBDFC375B097F69059E81BE83BF01D16D31626A086C78E4256DBF
+       k1: 98528F24DCBE4BB7AF37F5863B1A2D1E59348ED9EA594AD3BE5061DA0FD7F440
