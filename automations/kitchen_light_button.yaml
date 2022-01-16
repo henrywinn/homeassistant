@@ -16,23 +16,48 @@ trigger:
 condition: []
 action:
   - choose:
+    #
+    # Turn on 1% when sleepy time
+    #
     - conditions:
-      - condition: template
-        value_template: '{{ trigger.event.data["new_state"]["state"] == "on" }}'
+      - '{{ trigger.event.data["new_state"]["state"] == "on" }}'
+      - condition: state
+        entity_id: binary_sensor.sleepy_time
+        state: 'on'
       sequence:
         - service: light.turn_on
           target:
             entity_id: light.kitchen
+          data:
+            brightness_pct: 1
+    #
+    # Turn on 100% when not sleepy time
+    #
     - conditions:
-      - condition: template
-        value_template: '{{ trigger.event.data["new_state"]["state"] == "off" }}'
+      - '{{ trigger.event.data["new_state"]["state"] == "on" }}'
+      - condition: state
+        entity_id: binary_sensor.sleepy_time
+        state: 'off'
+      sequence:
+        - service: light.turn_on
+          target:
+            entity_id: light.kitchen
+          data:
+            brightness_pct: 100
+    #
+    # Turn off
+    #
+    - conditions:
+      - '{{ trigger.event.data["new_state"]["state"] == "off" }}'
       sequence:
         - service: light.turn_off
           target:
             entity_id: light.kitchen
+    #
+    # Brightness Down TODO
+    #
     - conditions:
-      - condition: template
-        value_template: '{{ trigger.event.data["new_state"]["state"] == "brightness_move_down" }}'
+      - '{{ trigger.event.data["new_state"]["state"] == "brightness_move_down" }}'
       sequence:
         - repeat:
             while: []
@@ -46,9 +71,11 @@ action:
                   transition: 0.5
               - delay:
                   milliseconds: 500
+    #
+    # Brightness Up TODO
+    #
     - conditions:
-      - condition: template
-        value_template: '{{ trigger.event.data["new_state"]["state"] == "brightness_move_up" }}'
+      - '{{ trigger.event.data["new_state"]["state"] == "brightness_move_up" }}'
       sequence:
         - repeat:
             while: []
