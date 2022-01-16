@@ -1,0 +1,9 @@
+all_lights:
+  name: All Lights
+  all: false
+  entities:
+    - light.living_room_overhead_lamp
+    - light.bathroom
+    - light.desk_lamp
+    - light.kitchen
+    - light.bedroom_standing_lamp

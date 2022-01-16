@@ -1,186 +1,23 @@
-- id: '1625967882625'
-  name: Overhead Off
+- name: Nobody Home
   entities:
-    light.0xb0ce18140360b387:
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      supported_color_modes:
-      - brightness
-      friendly_name: Overhead facing couch
-      supported_features: 45
-      state: 'off'
-    light.0xb0ce18140336fd81:
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      supported_color_modes:
-      - brightness
-      friendly_name: Overhead facing desk
-      supported_features: 45
-      state: 'off'
-    light.0xb0ce18140360b248:
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      supported_color_modes:
-      - brightness
-      friendly_name: Overhead facing kitchen
-      supported_features: 45
-      state: 'off'
-- id: '1625967949172'
-  name: Overhead 33%
+    group.all_lights: "off"
+    media_player.living_room_tv: "off"
+    climate.midea_ac: "off"
+
+- name: Sleep Mode
   entities:
-    light.0xb0ce18140360b387:
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      supported_color_modes:
-      - brightness
-      color_mode: brightness
-      brightness: 84
-      friendly_name: Overhead facing couch
-      supported_features: 45
-      state: 'on'
-    light.0xb0ce18140336fd81:
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      supported_color_modes:
-      - brightness
-      color_mode: brightness
-      brightness: 84
-      friendly_name: Overhead facing desk
-      supported_features: 45
-      state: 'on'
-    light.0xb0ce18140360b248:
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      supported_color_modes:
-      - brightness
-      color_mode: brightness
-      brightness: 84
-      friendly_name: Overhead facing kitchen
-      supported_features: 45
-      state: 'on'
-- id: '1625968012481'
-  name: Overhead 66%
-  entities:
-    light.0xb0ce18140360b387:
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      supported_color_modes:
-      - brightness
-      color_mode: brightness
-      brightness: 166
-      friendly_name: Overhead facing couch
-      supported_features: 45
-      state: 'on'
-    light.0xb0ce18140336fd81:
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      supported_color_modes:
-      - brightness
-      color_mode: brightness
-      brightness: 166
-      friendly_name: Overhead facing desk
-      supported_features: 45
-      state: 'on'
-    light.0xb0ce18140360b248:
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      supported_color_modes:
-      - brightness
-      color_mode: brightness
-      brightness: 166
-      friendly_name: Overhead facing kitchen
-      supported_features: 45
-      state: 'on'
-- id: '1625968074156'
-  name: Overhead 100%
-  entities:
-    light.0xb0ce18140360b387:
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      supported_color_modes:
-      - brightness
-      color_mode: brightness
-      brightness: 255
-      friendly_name: Overhead facing couch
-      supported_features: 45
-      state: 'on'
-    light.0xb0ce18140336fd81:
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      supported_color_modes:
-      - brightness
-      color_mode: brightness
-      brightness: 255
-      friendly_name: Overhead facing desk
-      supported_features: 45
-      state: 'on'
-    light.0xb0ce18140360b248:
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      supported_color_modes:
-      - brightness
-      color_mode: brightness
-      brightness: 255
-      friendly_name: Overhead facing kitchen
-      supported_features: 45
-      state: 'on'
+    group.all_lights: "off"
+    media_player.living_room_tv: "off"
+    climate.midea_ac:
+      state: "cool"
+      temperature: 18
+
+# - name: Pre-Sleep
+#   entities:
+#     group.all_lights: "off"
+#     light.bathroom:
+#       state: "on"
+#     media_player.living_room_tv: "off"
+#     climate.midea_ac:
+#       state: "cool"
+#       temperature: 20

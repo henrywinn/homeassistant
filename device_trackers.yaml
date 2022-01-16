@@ -1,0 +1,3 @@
+- platform: icloud3
+  username: henrywinn@henrywinn.com
+  password: !secret icloud_pw
