@@ -16,6 +16,7 @@ automation: !include_dir_list automations/
 script: !include scripts.yaml
 scene: !include scenes.yaml
 light: !include lights.yaml
+binary_sensor: !include binary_sensors.yaml 
 
 hdmi_cec:
   devices:
