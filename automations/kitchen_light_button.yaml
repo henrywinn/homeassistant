@@ -61,17 +61,16 @@ action:
       - '{{ trigger.event.data["new_state"]["state"] == "brightness_move_down" }}'
       sequence:
         - repeat:
-            while: []
+            while:
+              - '{{ state_attr("light.kitchen", "brightness") > 0 }}'
             sequence:
               - service: light.turn_on
                 target:
                   entity_id: light.kitchen
                 data:
-                  entity_id: light.kitchen
-                  brightness_step_pct: -10
-                  transition: 0.5
+                  brightness_step: -5
               - delay:
-                  milliseconds: 500
+                  milliseconds: 100
     #
     # Brightness Up TODO
     #
@@ -79,17 +78,17 @@ action:
       - '{{ trigger.event.data["new_state"]["state"] == "brightness_move_up" }}'
       sequence:
         - repeat:
-            while: []
+            while:
+              - '{{ state_attr("light.kitchen", "brightness") < 255 }}'
             sequence:
               - service: light.turn_on
                 target:
                   entity_id: light.kitchen
                 data_template:
                   entity_id: light.kitchen
-                  brightness_step_pct: 10
-                  transition: 0.5
+                  brightness_step: 5
               - delay:
-                  milliseconds: 500
+                  milliseconds: 100
 
 # Any other event will cancel the repeat loops.
     default:
