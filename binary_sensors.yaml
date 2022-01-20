@@ -1,4 +1,4 @@
 - platform: tod
   name: Sleepy Time
   after: "22:00"
-  before: "07:00"
+  before: "11:00"
