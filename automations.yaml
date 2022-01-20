@@ -1,1 +1,56 @@
-[]
+- id: '1642641167354'
+  alias: Linkind Button Controlling Light
+  description: ''
+  use_blueprint:
+    path: button_controlling_light.yaml
+    input:
+      button: sensor.button_1_action
+      light: light.bathroom
+- id: '1642641241906'
+  alias: bathroom light
+  description: yy
+  use_blueprint:
+    path: button_controlling_light.yaml
+    input:
+      button: sensor.button_1_action
+      light: light.bathroom
+- id: '1642650876732'
+  alias: bathroom_light
+  description: ''
+  use_blueprint:
+    path: button_controlling_light.yaml
+    input:
+      button: sensor.button_3
+      light: light.bathroom
+- id: '1642650943876'
+  alias: 'newnew '
+  description: ' nana'
+  use_blueprint:
+    path: button_controlling_light.yaml
+    input:
+      button: sensor.button_3
+      light: light.living_room_overhead_lamp
+- id: '1642651446296'
+  alias: Living Room Button
+  description: ''
+  use_blueprint:
+    path: button_controlling_light.yaml
+    input:
+      button_in: sensor.button_1_action
+      light_out: light.living_room_overhead_lamp
+- id: '1642651521658'
+  alias: Bedroom Button
+  description: ''
+  use_blueprint:
+    path: button_controlling_light.yaml
+    input:
+      button_in: sensor.button_4_action
+      light_out: light.bedroom_1
+- id: '1642655247735'
+  alias: Bathroom Button
+  description: ''
+  use_blueprint:
+    path: button_controlling_light.yaml
+    input:
+      button_in: sensor.button_3
+      light_out: light.bathroom

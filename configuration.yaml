@@ -12,16 +12,13 @@ tts:
   - platform: google_translate
 
 group: !include groups.yaml
-automation: !include_dir_list automations/ 
+automation: !include automations.yaml
+automation custom: !include_dir_list automations/ 
 script: !include scripts.yaml
 scene: !include scenes.yaml
 light: !include lights.yaml
 binary_sensor: !include binary_sensors.yaml 
 
-hdmi_cec:
-  devices:
-    1: PS4
+# climate: !include climate.yaml
 
-climate: !include climate.yaml
-
-device_tracker: !include device_trackers.yaml
+# device_tracker: !include device_trackers.yaml
